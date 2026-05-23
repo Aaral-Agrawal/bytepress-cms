@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-color: #f0f0f3;
+    color: #36363f;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #d9d9de; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #b8b8c1; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255,255,255,0.7);
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-ink-100/70;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide;
+  }
+  .input-field {
+    @apply w-full bg-ink-50 border border-ink-200 rounded-xl px-4 py-3 text-sm text-ink-900 placeholder:text-ink-400
+           focus:outline-none focus:ring-2 focus:ring-accent-400/40 focus:border-accent-400
+           transition-all duration-200;
+  }
+  .btn-primary {
+    @apply bg-ink-950 text-white font-semibold px-5 py-3 rounded-xl
+           hover:bg-ink-800 active:scale-[0.98] transition-all duration-150 shadow-soft
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+  .btn-accent {
+    @apply bg-accent-500 text-white font-semibold px-5 py-2.5 rounded-xl
+           hover:bg-accent-600 active:scale-[0.98] transition-all duration-150 shadow-soft;
+  }
+  .btn-ghost {
+    @apply text-ink-600 font-medium px-4 py-2 rounded-xl hover:bg-ink-100
+           active:scale-[0.98] transition-all duration-150;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Playfair Display', Georgia, serif; }
+  .text-gradient {
+    background: linear-gradient(135deg, #1c1c23 0%, #5c5c6e 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .text-gradient-accent {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+}
