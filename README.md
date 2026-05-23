@@ -316,7 +316,7 @@ npm start
 
 ### Aaral Agrawal
 
-Built with ❤️ using MERN Stack + Next.js
+Built using MERN Stack + Next.js
 
 ---
 
