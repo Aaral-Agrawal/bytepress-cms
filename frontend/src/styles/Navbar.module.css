@@ -1,0 +1,36 @@
+:root{
+    --bg:#fff; --accent:#0b74de; --border:#eee;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  }
+  
+  .nav{border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:50}
+  .inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px}
+  .brand{font-weight:700;color:var(--accent);text-decoration:none;font-size:1.05rem}
+  .mobileToggle{display:none;background:none;border:0;font-size:1.2rem;cursor:pointer}
+  .links{display:flex;gap:12px;align-items:center}
+  .links a{color:#111;text-decoration:none;padding:6px 8px;border-radius:6px}
+  .links a:hover{background:#f5f7fb}
+  .dropdown{position:relative}
+  .dropBtn{background:none;border:0;cursor:pointer;padding:6px 8px;border-radius:6px;font:inherit}
+  .menu{position:absolute;left:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--border);box-shadow:0 6px 18px rgba(16,24,40,0.06);min-width:200px;padding:6px;border-radius:8px;display:none;z-index:60}
+  .menu.show{display:block}
+  .menu li{list-style:none}
+  .menu a{display:block;padding:8px 10px;color:#111;text-decoration:none;border-radius:6px}
+  .menu a:hover{background:#f5f7fb}
+  .divider{border-top:1px solid var(--border);margin-top:6px;padding-top:6px}
+  
+  .search{display:flex;align-items:center;border:1px solid var(--border);padding:4px;border-radius:8px}
+  .search input{border:0;outline:none;padding:6px 8px}
+  .search button{border:0;background:transparent;cursor:pointer;padding:6px}
+  
+  .login{background:var(--accent);color:#fff;padding:6px 10px;border-radius:8px;text-decoration:none}
+  
+  /* Responsive */
+  @media (max-width:800px){
+    .mobileToggle{display:block}
+    .links{position:absolute;left:0;right:0;top:64px;background:var(--bg);flex-direction:column;padding:12px;display:none}
+    .links.open{display:flex}
+    .search{width:100%}
+    .menu{position:static;box-shadow:none;border:0;padding-left:12px}
+  }
+  

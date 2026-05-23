@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+@import "tailwindcss";
+
+/* ── CSS variables ─────────────────────────────────────────────── */
+:root {
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Base ──────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #ffffff;
+  color: #0d1117;
+}
+
+/* ── Component classes ─────────────────────────────────────────── */
+@layer components {
+
+  .nav-link {
+    @apply px-3 py-1.5 rounded-lg text-sm font-medium text-gray-600
+           hover:text-blue-600 hover:bg-blue-50 transition-all duration-150 cursor-pointer;
+  }
+
+  .section-tag {
+    @apply text-blue-600 text-xs font-bold uppercase tracking-[0.08em] mb-2;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-black tracking-tight leading-tight mb-3;
+    font-family: var(--font-display);
+  }
+
+  .section-sub {
+    @apply text-gray-500 text-base max-w-xl mx-auto leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700
+           text-white font-semibold px-7 py-3.5 rounded-full
+           transition-all duration-200 hover:-translate-y-0.5
+           hover:shadow-[0_8px_24px_rgba(26,109,255,0.32)];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 bg-white hover:bg-gray-50
+           text-gray-900 font-semibold px-7 py-3.5 rounded-full
+           border border-gray-200 hover:border-blue-300
+           transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1.5
+           hover:shadow-[0_16px_48px_rgba(0,0,0,0.10)];
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-xl border border-white/60;
+  }
+
+  /* ── Loading skeleton (used in Navbar dropdowns + BlogCard) ── */
+  .skeleton {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e9edf4 50%, #f1f5f9 75%);
+    background-size: 600px 100%;
+    animation: shimmer 1.3s infinite linear;
+  }
+}
+
+/* ── Utility animations ────────────────────────────────────────── */
+@layer utilities {
+
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+  .animate-float-2 {
+    animation: float 6s ease-in-out infinite 1s;
+  }
+  .animate-float-3 {
+    animation: float 4.5s ease-in-out infinite 0.5s;
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-tag-scroll {
+    animation: tagScroll 22s linear infinite;
+  }
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px)   rotate(-1deg); }
+  50%       { transform: translateY(-14px) rotate(1deg);  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes tagScroll {
+  0%   { transform: translateX(0);     }
+  100% { transform: translateX(-50%);  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position:  600px 0; }
+}
+
+/* ── Custom scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9ca3af; }
